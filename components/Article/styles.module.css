@@ -1,0 +1,26 @@
+.image {
+  width: 200px;
+  aspect-ratio: 16 / 9;
+  float: left;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.root {
+  max-width: 20rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+.title {
+  padding: 0.1rem;
+}
+
+.title a {
+  display: -webkit-inline-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

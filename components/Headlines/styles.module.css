@@ -1,0 +1,11 @@
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+}

@@ -1,0 +1,12 @@
+.container {
+  height: 100%;
+  max-width: 65rem;
+  width: 80%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.container > footer {
+  text-align: center;
+}

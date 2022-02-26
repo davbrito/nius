@@ -1,0 +1,15 @@
+.root {
+  position: absolute;
+  margin-top: -100%;
+}
+
+.root:focus-within {
+  position: absolute;
+  margin-top: 0;
+}
+
+.root a {
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
+  background-color: white;
+}

@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  min-height: 4rem;
+}
+
+.nav h1 {
+  align-self: center;
+}
+
+.nav ul {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  margin-left: auto;
+}
+
+.nav ul li {
+  padding: 1rem;
+}

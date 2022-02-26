@@ -1,7 +1,17 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+const canUseDom = typeof window !== "undefined";
+
+if (canUseDom) {
+  import("@github/g-emoji-element");
 }
 
-export default MyApp
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <Component {...pageProps} />
+    </>
+  );
+}
+
+export default MyApp;
