@@ -6,10 +6,16 @@ import PageLayout from "../components/PageLayout";
 const API_KEY = process.env.NEWS_API_KEY;
 const BASE_URL = "https://newsapi.org/v2/";
 
+const DEFAULT_LANG = "en";
+
+const languageDisplayName = new Intl.DisplayNames(undefined, {
+  type: "language",
+});
+
 export default function Home({ articles }) {
   const router = useRouter();
 
-  const lang = router.query.lang;
+  const lang = router.query.lang ?? DEFAULT_LANG;
 
   return (
     <PageLayout title="Home">
@@ -18,15 +24,11 @@ export default function Home({ articles }) {
         <select
           value={lang}
           onChange={(event) => {
-            router.replace(
-              { query: { lang: event.currentTarget.value } },
-              undefined,
-              {}
-            );
+            router.replace({ query: { lang: event.currentTarget.value } });
           }}
         >
-          <option value="es">Spanish</option>
-          <option value="en">English</option>
+          <option value="es">{languageDisplayName.of("es")}</option>
+          <option value="en">{languageDisplayName.of("en")}</option>
         </select>
       </p>
 
@@ -35,7 +37,7 @@ export default function Home({ articles }) {
   );
 }
 
-export async function getServerSideProps({ query: { lang = "en" } }) {
+export async function getServerSideProps({ query: { lang = DEFAULT_LANG } }) {
   const params = new URLSearchParams({
     apiKey: API_KEY,
     language: lang,
