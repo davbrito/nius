@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 
 function Header() {
   return (
-    <header>
+    <header className="container">
       <nav className={styles.nav}>
         <h1>
           <Link href="/">Nius</Link>

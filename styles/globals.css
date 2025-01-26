@@ -1,4 +1,5 @@
 @import url(./reset.css);
+@import url(@picocss/pico);
 
 g-emoji {
   vertical-align: middle;
