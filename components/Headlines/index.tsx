@@ -13,7 +13,7 @@ async function Headlines({ lang }: { lang: string }) {
       </header>
       <div className={styles.items}>
         {articles?.map((article) => {
-          return <Article {...article} key={article.url} />;
+          return <Article key={article.url} article={article} />;
         })}
       </div>
     </section>

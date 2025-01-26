@@ -12,6 +12,7 @@
           "nesting-rules": true
         }
       }
-    ]
+    ],
+    ["@tailwindcss/postcss", {}]
   ]
 }

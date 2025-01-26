@@ -78,4 +78,4 @@ export const contract = c.router({
 
 export type ResponseShapes = ClientInferResponses<typeof contract>;
 
-export type Article = z.infer<typeof ArticleSchema>;
+export type ArticleModel = z.infer<typeof ArticleSchema>;

@@ -15,6 +15,7 @@ const config = [
   {
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
+      "react/jsx-no-leaked-render": "warn",
     },
   },
 ];

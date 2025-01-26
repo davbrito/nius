@@ -1,12 +1,5 @@
-@import url(./reset.css);
+@import url(tailwindcss);
 @import url(@picocss/pico);
-
-g-emoji {
-  vertical-align: middle;
-  & img {
-    display: initial;
-  }
-}
 
 a {
   outline-color: currentColor;

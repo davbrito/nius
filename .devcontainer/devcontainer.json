@@ -13,7 +13,8 @@
         "esbenp.prettier-vscode",
         "GitHub.copilot",
         "nicoespeon.abracadabra",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss"
       ]
     }
   }
