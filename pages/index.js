@@ -8,11 +8,7 @@ const BASE_URL = "https://newsapi.org/v2/";
 
 const DEFAULT_LANG = "en";
 
-const languageDisplayName = new Intl.DisplayNames(undefined, {
-  type: "language",
-});
-
-export default function Home({ articles }) {
+export default function Home({ articles, languages }) {
   const router = useRouter();
 
   const lang = router.query.lang ?? DEFAULT_LANG;
@@ -27,8 +23,11 @@ export default function Home({ articles }) {
             router.replace({ query: { lang: event.currentTarget.value } });
           }}
         >
-          <option value="es">{languageDisplayName.of("es")}</option>
-          <option value="en">{languageDisplayName.of("en")}</option>
+          {languages.map(({ lang, displayName }) => (
+            <option key={lang} value={lang}>
+              {displayName}
+            </option>
+          ))}
         </select>
       </p>
 
@@ -37,7 +36,13 @@ export default function Home({ articles }) {
   );
 }
 
-export async function getServerSideProps({ query: { lang = DEFAULT_LANG } }) {
+/**
+ * @param {import("next").GetServerSidePropsContext} ctx
+ * @returns
+ */
+export async function getServerSideProps({ query: { lang } }) {
+  lang ||= DEFAULT_LANG;
+
   const params = new URLSearchParams({
     apiKey: API_KEY,
     language: lang,
@@ -52,10 +57,18 @@ export async function getServerSideProps({ query: { lang = DEFAULT_LANG } }) {
 
   const data = await response.json();
 
+  const displayNames = new Intl.DisplayNames("en", { type: "language" });
+
+  const languages = ["es", "en"].map((lang) => ({
+    lang,
+    displayName: displayNames.of(lang).replace(/^(.)/, (c) => c.toUpperCase()),
+  }));
+
   return {
     props: {
       error: data.status === "error",
       articles: data.articles ?? null,
+      languages,
     },
   };
 }
