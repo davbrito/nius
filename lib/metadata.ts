@@ -1,3 +1,3 @@
 export function titleTemplate(title?: string) {
-  return ["Nius", title].filter(Boolean).join(" - ");
+  return [title, "Nius"].filter(Boolean).join(" - ");
 }
