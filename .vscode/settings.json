@@ -3,5 +3,6 @@
   "emmet.includeLanguages": {
     "postcss": "css"
   },
-  "[css]": {}
+  "[css]": {},
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

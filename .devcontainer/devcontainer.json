@@ -11,7 +11,9 @@
     "vscode": {
       "extensions": [
         "esbenp.prettier-vscode",
-        "GitHub.copilot"
+        "GitHub.copilot",
+        "nicoespeon.abracadabra",
+        "dbaeumer.vscode-eslint"
       ]
     }
   }

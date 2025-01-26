@@ -1,14 +1,22 @@
-import Link from "next/link";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import Headlines from "../components/Headlines";
 import PageLayout from "../components/PageLayout";
 
-const API_KEY = process.env.NEWS_API_KEY;
+const API_KEY = process.env.NEWS_API_KEY!;
 const BASE_URL = "https://newsapi.org/v2/";
 
 const DEFAULT_LANG = "en";
 
-export default function Home({ articles, languages }) {
+interface HomeProps {
+  articles: any[];
+  languages: { lang: string; displayName: string }[];
+}
+
+export default function Home({
+  articles,
+  languages,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
 
   const lang = router.query.lang ?? DEFAULT_LANG;
@@ -36,22 +44,18 @@ export default function Home({ articles, languages }) {
   );
 }
 
-/**
- * @param {import("next").GetServerSidePropsContext} ctx
- * @returns
- */
-export async function getServerSideProps({ query: { lang } }) {
+export const getServerSideProps = (async ({ query: { lang } }) => {
   lang ||= DEFAULT_LANG;
 
   const params = new URLSearchParams({
     apiKey: API_KEY,
-    language: lang,
-    pageSize: 3,
+    language: lang as string,
+    pageSize: "3",
   });
 
   const url = new URL("./top-headlines", BASE_URL);
 
-  url.search = params;
+  url.search = params.toString();
 
   const response = await fetch(url);
 
@@ -61,7 +65,8 @@ export async function getServerSideProps({ query: { lang } }) {
 
   const languages = ["es", "en"].map((lang) => ({
     lang,
-    displayName: displayNames.of(lang).replace(/^(.)/, (c) => c.toUpperCase()),
+    displayName:
+      displayNames.of(lang)?.replace(/^(.)/, (c) => c.toUpperCase()) ?? lang,
   }));
 
   return {
@@ -71,4 +76,4 @@ export async function getServerSideProps({ query: { lang } }) {
       languages,
     },
   };
-}
+}) satisfies GetServerSideProps<HomeProps>;
