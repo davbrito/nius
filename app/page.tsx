@@ -11,12 +11,6 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   title: titleTemplate("Home"),
   description: "Nius - Your Favorite News in a single place",
-  icons: [
-    {
-      rel: "icon",
-      url: "/favicon.ico",
-    },
-  ],
 };
 
 export default async function Home({ searchParams }: PageProps) {
