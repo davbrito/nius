@@ -5,12 +5,12 @@ import { use } from "react";
 
 interface NewsListProps {
   page: number;
+  pageSize: number;
   promise: Promise<ResponseShapes["everything"]>;
 }
 
-export default function NewsList({ page, promise }: NewsListProps) {
+export default function NewsList({ page, pageSize, promise }: NewsListProps) {
   const query = useSetSearchParam();
-  const pageSize = 10;
 
   const data = use(promise);
   const { status, body } = data;

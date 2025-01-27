@@ -9,13 +9,13 @@ interface Language {
 
 interface LangSelectorProps {
   languages: Language[];
+  lang: string;
 }
 
-function LangSelector({ languages }: LangSelectorProps) {
+function LangSelector({ languages, lang }: LangSelectorProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const lang = searchParams?.get("lang");
 
   // Get a new searchParams string by merging the current
   // searchParams with a provided key/value pair
@@ -26,20 +26,26 @@ function LangSelector({ languages }: LangSelectorProps) {
   };
 
   return (
-    <select
-      value={lang ?? ""}
-      onChange={(event) => {
-        router.replace(
-          pathname + "?" + createQueryString("lang", event.target.value),
-        );
-      }}
-    >
-      {languages.map(({ lang, displayName }) => (
-        <option key={lang} value={lang}>
-          {displayName}
-        </option>
-      ))}
-    </select>
+    <details className="dropdown">
+      <summary role="button" style={{ width: "max-content" }}>
+        {lang
+          ? languages.find(({ lang: l }) => l === lang)?.displayName
+          : "Select Language"}
+      </summary>
+      <ul>
+        {languages.map(({ lang, displayName }) => (
+          <li
+            key={lang}
+            value={lang}
+            onClick={() => {
+              router.replace(pathname + "?" + createQueryString("lang", lang));
+            }}
+          >
+            {displayName}
+          </li>
+        ))}
+      </ul>
+    </details>
   );
 }
 

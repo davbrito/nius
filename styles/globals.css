@@ -1,5 +1,9 @@
-@import url(tailwindcss);
+@import "tailwindcss";
 @import url(@picocss/pico);
+
+@source "../app";
+@source "../components";
+@source "../lib";
 
 a {
   outline-color: currentColor;

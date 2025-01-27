@@ -8,7 +8,7 @@ export interface ArticleProps {
 
 export default function Article({ article }: ArticleProps) {
   return (
-    <article className="max-w-86">
+    <article className="max-w-xs">
       <header>
         <h3 className={styles.title} title={article.title}>
           <a href={article.url} target="_blank" rel="noreferrer">
@@ -17,17 +17,22 @@ export default function Article({ article }: ArticleProps) {
         </h3>
       </header>
       {article.urlToImage ? (
-        <div className="w-full h-32 relative">
+        <a
+          href={article.url}
+          target="_blank"
+          rel="noreferrer"
+          className="relative mx-[-1rem] mt-[-1rem] block h-36 overflow-hidden bg-black/20"
+        >
           <Image
-            className="object-cover"
+            className="object-contain transition-transform hover:scale-105"
             src={article.urlToImage}
             alt=""
             unoptimized
             fill
           />
-        </div>
+        </a>
       ) : null}
-      <p>{article.description}</p>
+      <p className="pt-3">{article.description}</p>
     </article>
   );
 }

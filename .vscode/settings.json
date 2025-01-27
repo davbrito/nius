@@ -3,6 +3,13 @@
   "emmet.includeLanguages": {
     "postcss": "css"
   },
-  "[css]": {},
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.experimental.configFile": "styles/globals.css",
+  "files.autoSave": "onWindowChange"
 }
