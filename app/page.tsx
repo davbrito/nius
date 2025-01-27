@@ -32,11 +32,11 @@ export default async function Home({ searchParams }: PageProps) {
       </div>
 
       {showHeadlines ? (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div aria-busy="true" />}>
           <Headlines lang={lang} />
         </Suspense>
       ) : null}
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div aria-busy="true" />}>
         <NewsList
           page={page}
           pageSize={10}
