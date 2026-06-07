@@ -49,16 +49,6 @@ export default function Header({ lang: defaultLang }: { lang: string }) {
                   News feed
                 </a>
               </li>
-              <li>
-                <a
-                  className="text-muted hover:text-ink hover:border-accent inline-flex min-h-10 items-center border-b-2 border-transparent py-1 no-underline"
-                  href="https://github.com/davbrito/nius"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Source
-                </a>
-              </li>
             </ul>
           </nav>
         </div>

@@ -18,7 +18,6 @@ export default async function Home({ searchParams }: PageProps<"/">) {
   const search = query?.search?.toString();
   const page = Number(query?.page ?? 1);
 
-  const showHeadlines = page <= 1 && !search;
   const sectionTitle = search ? `Results for \"${search}\"` : "Latest coverage";
   const sectionDescription = search
     ? "Search results from Associated Press and BBC News."
@@ -26,19 +25,10 @@ export default async function Home({ searchParams }: PageProps<"/">) {
 
   return (
     <div className="grid gap-12 pt-4">
-      <section className="grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(18rem,0.95fr)]">
-        <div className="shadow-soft rounded-4xl border border-(--color-border) bg-[radial-gradient(circle_at_top_right,rgba(194,79,46,0.18),transparent_32%),linear-gradient(135deg,rgba(255,250,242,0.96),rgba(247,237,223,0.98))] p-[clamp(1.75rem,4vw,3rem)]">
-          <p className="m-0 text-[0.8rem] font-bold tracking-[0.2em] text-[color:var(--color-accent-strong)] uppercase">
-            Global news, stripped to signal
-          </p>
-          <h1 className="m-0 max-w-[11ch] text-[clamp(3.2rem,6vw,5.8rem)] leading-[0.9] font-(--font-display)">
-            A sharper front page for the stories worth your attention.
-          </h1>
-          <p className="text-muted mt-4 max-w-[56ch] text-[1.08rem]">
-            Nius tracks top headlines and deeper reporting in one focused
-            reading surface, with language switching and quick search built in.
-          </p>
-        </div>
+      <section className="grid gap-6">
+        <Suspense fallback={<div aria-busy="true" />}>
+          <Headlines lang={lang} variant="hero" />
+        </Suspense>
 
         <div className="border-border grid content-start gap-5 rounded-[2rem] border bg-[rgba(255,252,246,0.82)] p-6 shadow-[var(--shadow-soft)] backdrop-blur-[16px]">
           <form role="search" className="grid gap-3">
@@ -89,12 +79,6 @@ export default async function Home({ searchParams }: PageProps<"/">) {
         </div>
       </section>
 
-      {showHeadlines ? (
-        <Suspense fallback={<div aria-busy="true" />}>
-          <Headlines lang={lang} />
-        </Suspense>
-      ) : null}
-
       <section
         id="news-feed"
         aria-labelledby="news-feed-title"
@@ -102,7 +86,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
       >
         <div className="flex items-end justify-between gap-4 max-[920px]:flex-col max-[920px]:items-start">
           <div>
-            <p className="m-0 text-[0.8rem] font-bold tracking-[0.2em] text-[color:var(--color-accent-strong)] uppercase">
+            <p className="text-accent-strong m-0 text-[0.8rem] font-bold tracking-[0.2em] uppercase">
               Wire overview
             </p>
             <h2

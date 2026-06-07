@@ -45,9 +45,7 @@ function LangSelector({ languages, lang }: LangSelectorProps) {
                 : ""
             }
           </Select.Value>
-          <Select.Icon className="text-[0.8rem] text-muted">
-            ▾
-          </Select.Icon>
+          <Select.Icon className="text-muted text-[0.8rem]">▾</Select.Icon>
         </Select.Trigger>
         <Select.Portal>
           <Select.Positioner sideOffset={10} alignItemWithTrigger>
@@ -58,10 +56,10 @@ function LangSelector({ languages, lang }: LangSelectorProps) {
                     key={lang}
                     value={lang}
                     label={displayName}
-                    className="flex cursor-pointer items-center justify-between rounded-xl px-3 py-2 text-sm transition data-[highlighted]:bg-[rgba(187,77,0,0.1)] data-[selected]:bg-[rgba(187,77,0,0.08)]"
+                    className="flex cursor-pointer items-center justify-between rounded-xl px-3 py-2 text-sm transition data-highlighted:bg-[rgba(187,77,0,0.1)] data-[selected]:bg-[rgba(187,77,0,0.08)]"
                   >
                     <Select.ItemText>{displayName}</Select.ItemText>
-                    <Select.ItemIndicator className="text-[color:var(--color-accent-strong)]">
+                    <Select.ItemIndicator className="text-(--color-accent-strong)">
                       ✓
                     </Select.ItemIndicator>
                   </Select.Item>

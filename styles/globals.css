@@ -35,7 +35,8 @@ body {
   position: relative;
   color: var(--color-ink);
   font-family: var(--font-body);
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at top left,
       rgba(187, 77, 0, 0.18),
       transparent 28%
@@ -74,6 +75,15 @@ select {
 
 img {
   max-width: 100%;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Header links */
