@@ -17,7 +17,7 @@ export default function Header({ lang: defaultLang }: { lang: string }) {
           <p className="text-muted m-0 text-[0.75rem] tracking-[0.28em] uppercase">
             Daily editorial brief
           </p>
-          <h1 className="m-0 text-[clamp(2.8rem,5vw,4.6rem)] leading-[0.88] font-[family:var(--font-display)]">
+          <h1 className="m-0 text-[clamp(2.8rem,5vw,4.6rem)] leading-[0.88] font-display">
             <Link href="/">Nius</Link>
           </h1>
         </div>

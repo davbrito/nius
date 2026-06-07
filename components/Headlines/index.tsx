@@ -23,7 +23,7 @@ async function Headlines({ lang, variant = "grid" }: HeadlinesProps) {
             </p>
             <h2
               id="headlines-title"
-              className="m-0 text-[clamp(2.6rem,5vw,4rem)] leading-[0.92] font-[family:var(--font-display)]"
+              className="m-0 text-[clamp(2.6rem,5vw,4rem)] leading-[0.92] font-display"
             >
               Headlines
             </h2>

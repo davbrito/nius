@@ -16,7 +16,7 @@ export default function Article({ article }: ArticleProps) {
   );
 
   return (
-    <article className="group bg-panel grid min-h-full grid-rows-[220px_1fr] overflow-hidden rounded-[1.5rem] border border-[rgba(23,23,23,0.08)] shadow-[var(--shadow-soft)] backdrop-blur-[10px]">
+    <article className="group bg-panel grid min-h-full grid-rows-[220px_1fr] overflow-hidden rounded-[1.5rem] border border-ink/8 shadow-soft backdrop-blur-[10px]">
       {article.urlToImage ? (
         <a
           href={article.url}
@@ -47,7 +47,7 @@ export default function Article({ article }: ArticleProps) {
 
         <header>
           <h3
-            className="m-0 text-[2rem] leading-[0.95] font-[family:var(--font-display)]"
+            className="m-0 text-[2rem] leading-[0.95] font-display"
             title={article.title}
           >
             <a href={article.url} target="_blank" rel="noreferrer">
@@ -62,7 +62,7 @@ export default function Article({ article }: ArticleProps) {
           href={article.url}
           target="_blank"
           rel="noreferrer"
-          className="hover:border-b-accent w-fit border-b-2 border-b-[rgba(187,77,0,0.35)] pb-1 font-bold no-underline"
+          className="hover:border-b-accent/80 w-fit border-b-2 border-b-accent/35 pb-1 font-bold no-underline"
         >
           Read full story
         </a>

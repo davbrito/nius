@@ -36,7 +36,7 @@ function LangSelector({ languages, lang }: LangSelectorProps) {
         }}
       >
         <Select.Label className="sr-only">Language</Select.Label>
-        <Select.Trigger className="text-ink inline-flex items-center justify-between gap-2 rounded-full border border-[rgba(23,23,23,0.12)] bg-[rgba(255,255,255,0.92)] px-3 py-1 text-left shadow-sm transition outline-none hover:border-(--color-accent) data-popup-open:border-(--color-accent)">
+        <Select.Trigger className="text-ink inline-flex items-center justify-between gap-2 rounded-full border border-ink/12 bg-white/90 px-3 py-1 text-left shadow-sm transition outline-none hover:border-accent data-popup-open:border-accent">
           <Select.Value>
             {(value: string | null) =>
               value
@@ -49,17 +49,17 @@ function LangSelector({ languages, lang }: LangSelectorProps) {
         </Select.Trigger>
         <Select.Portal>
           <Select.Positioner sideOffset={10} alignItemWithTrigger>
-            <Select.Popup className="overflow-hidden rounded-[1.25rem] border border-[rgba(23,23,23,0.12)] bg-white shadow-[0_24px_70px_rgba(23,23,23,0.18)]">
+            <Select.Popup className="overflow-hidden rounded-[1.25rem] border border-ink/12 bg-white shadow-[0_24px_70px_rgba(23,23,23,0.18)]">
               <Select.List className="grid gap-1 p-2">
                 {languages.map(({ lang, displayName }) => (
                   <Select.Item
                     key={lang}
                     value={lang}
                     label={displayName}
-                    className="flex cursor-pointer items-center justify-between rounded-xl px-3 py-2 text-sm transition data-highlighted:bg-[rgba(187,77,0,0.1)] data-[selected]:bg-[rgba(187,77,0,0.08)]"
+                    className="flex cursor-pointer items-center justify-between rounded-xl px-3 py-2 text-sm transition data-highlighted:bg-accent/10 data-[selected]:bg-accent/8"
                   >
                     <Select.ItemText>{displayName}</Select.ItemText>
-                    <Select.ItemIndicator className="text-(--color-accent-strong)">
+                    <Select.ItemIndicator className="text-accent-strong">
                       ✓
                     </Select.ItemIndicator>
                   </Select.Item>

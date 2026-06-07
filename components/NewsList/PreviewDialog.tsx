@@ -26,11 +26,11 @@ export default function PreviewDialog({ article }: PreviewDialogProps) {
                 <Dialog.Title className="text-muted text-[0.8rem] tracking-[0.22em] uppercase">
                   {article.source.name}
                 </Dialog.Title>
-                <h2 className="mt-2 text-[clamp(2rem,3vw,2.75rem)] leading-[1.05] font-[family:var(--font-display)]">
+                <h2 className="mt-2 text-[clamp(2rem,3vw,2.75rem)] leading-[1.05] font-display">
                   {article.title}
                 </h2>
               </div>
-              <Dialog.Close className="inline-flex h-10 items-center justify-center rounded-full border border-[rgba(23,23,23,0.12)] bg-[rgba(255,255,255,0.9)] px-4 text-sm font-semibold text-[color:var(--color-ink)] transition hover:border-[color:var(--color-accent)] hover:bg-white">
+              <Dialog.Close className="inline-flex h-10 items-center justify-center rounded-full border border-ink/12 bg-white/90 px-4 text-sm font-semibold text-ink transition hover:border-accent hover:bg-white">
                 Close
               </Dialog.Close>
             </div>

@@ -30,7 +30,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
           <Headlines lang={lang} variant="hero" />
         </Suspense>
 
-        <div className="border-border grid content-start gap-5 rounded-[2rem] border bg-[rgba(255,252,246,0.82)] p-6 shadow-[var(--shadow-soft)] backdrop-blur-[16px]">
+        <div className="border-border grid content-start gap-5 rounded-[2rem] border bg-panel p-6 shadow-soft backdrop-blur-[16px]">
           <form role="search" className="grid gap-3">
             <label
               className="text-muted text-[0.8rem] font-bold tracking-[0.14em] uppercase"
@@ -47,7 +47,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
                 type="search"
                 defaultValue={search}
                 placeholder="Economy, climate, elections..."
-                className="min-h-[3.2rem] w-full rounded-full border border-[rgba(23,23,23,0.12)] bg-[rgba(255,255,255,0.72)] px-4"
+                className="min-h-[3.2rem] w-full rounded-full border border-ink/12 bg-white/70 px-4"
               />
               <Button
                 type="submit"
@@ -59,19 +59,19 @@ export default async function Home({ searchParams }: PageProps<"/">) {
           </form>
 
           <div className="grid gap-3 md:grid-cols-[minmax(0,1.2fr)_repeat(2,minmax(0,1fr))]">
-            <div className="grid gap-1 rounded-[1.2rem] border border-[rgba(23,23,23,0.08)] bg-[rgba(255,255,255,0.62)] p-[0.95rem_1rem]">
+            <div className="grid gap-1 rounded-[1.2rem] border border-ink/8 bg-white/60 p-[0.95rem_1rem]">
               <span className="text-muted m-0 text-[0.8rem] font-bold tracking-[0.2em] uppercase">
                 Mode
               </span>
-              <strong className="text-[1.8rem] leading-none font-[family:var(--font-display)]">
+              <strong className="text-[1.8rem] leading-none font-display">
                 {search ? "Search" : "Top feed"}
               </strong>
             </div>
-            <div className="grid gap-1 rounded-[1.2rem] border border-[rgba(23,23,23,0.08)] bg-[rgba(255,255,255,0.62)] p-[0.95rem_1rem]">
+            <div className="grid gap-1 rounded-[1.2rem] border border-ink/8 bg-white/60 p-[0.95rem_1rem]">
               <span className="text-muted m-0 text-[0.8rem] font-bold tracking-[0.2em] uppercase">
                 Page
               </span>
-              <strong className="text-[1.8rem] leading-none font-[family:var(--font-display)]">
+              <strong className="text-[1.8rem] leading-none font-display">
                 {page}
               </strong>
             </div>
@@ -82,7 +82,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
       <section
         id="news-feed"
         aria-labelledby="news-feed-title"
-        className="border-border grid gap-6 rounded-[2rem] border bg-[rgba(255,251,244,0.68)] p-7 shadow-[var(--shadow-soft)] max-[720px]:rounded-[1.5rem]"
+        className="border-border grid gap-6 rounded-[2rem] border bg-panel/85 p-7 shadow-soft max-[720px]:rounded-[1.5rem]"
       >
         <div className="flex items-end justify-between gap-4 max-[920px]:flex-col max-[920px]:items-start">
           <div>
@@ -91,7 +91,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
             </p>
             <h2
               id="news-feed-title"
-              className="mt-1 text-[clamp(2.5rem,4vw,3.6rem)] leading-[0.94] font-[family:var(--font-display)]"
+              className="mt-1 text-[clamp(2.5rem,4vw,3.6rem)] leading-[0.94] font-display"
             >
               {sectionTitle}
             </h2>

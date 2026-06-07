@@ -70,7 +70,7 @@ export default function NewsList({ page, pageSize, promise }: NewsListProps) {
                   })}
                 </span>
               </p>
-              <h3 className="m-0 text-[clamp(1.6rem,3vw,2.25rem)] leading-[0.96] font-[family:var(--font-display)]">
+              <h3 className="m-0 text-[clamp(1.6rem,3vw,2.25rem)] leading-[0.96] font-display">
                 <a href={article.url} target="_blank" rel="noreferrer">
                   {article.title}
                 </a>
