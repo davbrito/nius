@@ -1,22 +1,22 @@
 // contract.ts
 
 import { ClientInferResponses, initContract } from "@ts-rest/core";
-import { z } from "zod";
+import * as z from "zod/mini";
 
 const c = initContract();
 
 const ArticleSchema = z.object({
   source: z.object({
-    id: z.string().nullable(),
+    id: z.nullable(z.string()),
     name: z.string(),
   }),
-  author: z.string().nullable(),
+  author: z.nullable(z.string()),
   title: z.string(),
-  description: z.string().nullable(),
+  description: z.nullable(z.string()),
   url: z.string(),
-  urlToImage: z.string().nullable(),
+  urlToImage: z.nullable(z.string()),
   publishedAt: z.string(),
-  content: z.string().nullable(),
+  content: z.nullable(z.string()),
 });
 
 const TopHeadlinesSchema = z.object({
@@ -55,17 +55,17 @@ export const contract = c.router({
     method: "GET",
     path: "/everything",
     query: z.object({
-      q: z.string().max(500).optional(),
-      searchIn: z.string().optional(),
-      sources: z.string().optional(),
-      domains: z.string().optional(),
-      excludeDomains: z.string().optional(),
-      from: z.string().optional(),
-      to: z.string().optional(),
-      language: z.string().optional(),
-      sortBy: z.string().optional(),
-      pageSize: z.number().optional(),
-      page: z.number().optional(),
+      q: z.optional(z.string().check(z.maxLength(500))),
+      searchIn: z.optional(z.string()),
+      sources: z.optional(z.string()),
+      domains: z.optional(z.string()),
+      excludeDomains: z.optional(z.string()),
+      from: z.optional(z.string()),
+      to: z.optional(z.string()),
+      language: z.optional(z.string()),
+      sortBy: z.optional(z.string()),
+      pageSize: z.optional(z.number()),
+      page: z.optional(z.number()),
     }),
     responses: {
       200: EverythingSchema,
