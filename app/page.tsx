@@ -39,9 +39,7 @@ export default async function Home({
   return (
     <div className="grid gap-12 pt-4">
       <section className="grid gap-6">
-        <Suspense fallback={<div aria-busy="true" />}>
-          <Headlines lang={locale} variant="hero" />
-        </Suspense>
+        <Headlines lang={locale} variant="hero" />
 
         <div className="shadow-soft bg-card grid content-start gap-5 rounded-[2rem] border p-6 backdrop-blur-[16px]">
           <form role="search" className="grid gap-3">
