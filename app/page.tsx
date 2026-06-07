@@ -30,10 +30,10 @@ export default async function Home({ searchParams }: PageProps<"/">) {
           <Headlines lang={lang} variant="hero" />
         </Suspense>
 
-        <div className="border-border grid content-start gap-5 rounded-[2rem] border bg-panel p-6 shadow-soft backdrop-blur-[16px]">
+        <div className="shadow-soft bg-card grid content-start gap-5 rounded-[2rem] border p-6 backdrop-blur-[16px]">
           <form role="search" className="grid gap-3">
             <label
-              className="text-muted text-[0.8rem] font-bold tracking-[0.14em] uppercase"
+              className="text-muted-foreground text-[0.8rem] font-bold tracking-[0.14em] uppercase"
               htmlFor="news-search"
             >
               Search the wire
@@ -47,11 +47,11 @@ export default async function Home({ searchParams }: PageProps<"/">) {
                 type="search"
                 defaultValue={search}
                 placeholder="Economy, climate, elections..."
-                className="min-h-[3.2rem] w-full rounded-full border border-ink/12 bg-white/70 px-4"
+                className="bg-card/70 min-h-[3.2rem] w-full rounded-full border px-4"
               />
               <Button
                 type="submit"
-                className="bg-ink min-h-[3.2rem] rounded-full border-0 px-5 font-bold text-white"
+                className="bg-foreground text-background min-h-[3.2rem] rounded-full border-0 px-5 font-bold"
               >
                 Search
               </Button>
@@ -59,19 +59,19 @@ export default async function Home({ searchParams }: PageProps<"/">) {
           </form>
 
           <div className="grid gap-3 md:grid-cols-[minmax(0,1.2fr)_repeat(2,minmax(0,1fr))]">
-            <div className="grid gap-1 rounded-[1.2rem] border border-ink/8 bg-white/60 p-[0.95rem_1rem]">
-              <span className="text-muted m-0 text-[0.8rem] font-bold tracking-[0.2em] uppercase">
+            <div className="bg-card/60 grid gap-1 rounded-[1.2rem] border p-[0.95rem_1rem]">
+              <span className="text-muted-foreground m-0 text-[0.8rem] font-bold tracking-[0.2em] uppercase">
                 Mode
               </span>
-              <strong className="text-[1.8rem] leading-none font-display">
+              <strong className="font-display text-[1.8rem] leading-none">
                 {search ? "Search" : "Top feed"}
               </strong>
             </div>
-            <div className="grid gap-1 rounded-[1.2rem] border border-ink/8 bg-white/60 p-[0.95rem_1rem]">
-              <span className="text-muted m-0 text-[0.8rem] font-bold tracking-[0.2em] uppercase">
+            <div className="bg-card/60 grid gap-1 rounded-[1.2rem] border p-[0.95rem_1rem]">
+              <span className="text-muted-foreground m-0 text-[0.8rem] font-bold tracking-[0.2em] uppercase">
                 Page
               </span>
-              <strong className="text-[1.8rem] leading-none font-display">
+              <strong className="font-display text-[1.8rem] leading-none">
                 {page}
               </strong>
             </div>
@@ -82,21 +82,23 @@ export default async function Home({ searchParams }: PageProps<"/">) {
       <section
         id="news-feed"
         aria-labelledby="news-feed-title"
-        className="border-border grid gap-6 rounded-[2rem] border bg-panel/85 p-7 shadow-soft max-[720px]:rounded-[1.5rem]"
+        className="bg-card/85 shadow-soft grid gap-6 rounded-[2rem] border p-7 max-[720px]:rounded-[1.5rem]"
       >
         <div className="flex items-end justify-between gap-4 max-[920px]:flex-col max-[920px]:items-start">
           <div>
-            <p className="text-accent-strong m-0 text-[0.8rem] font-bold tracking-[0.2em] uppercase">
+            <p className="text-accent-foreground m-0 text-[0.8rem] font-bold tracking-[0.2em] uppercase">
               Wire overview
             </p>
             <h2
               id="news-feed-title"
-              className="mt-1 text-[clamp(2.5rem,4vw,3.6rem)] leading-[0.94] font-display"
+              className="font-display mt-1 text-[clamp(2.5rem,4vw,3.6rem)] leading-[0.94]"
             >
               {sectionTitle}
             </h2>
           </div>
-          <p className="text-muted m-0 max-w-[32rem]">{sectionDescription}</p>
+          <p className="text-muted-foreground m-0 max-w-[32rem]">
+            {sectionDescription}
+          </p>
         </div>
 
         <Suspense fallback={<div aria-busy="true" />}>

@@ -27,7 +27,7 @@ export default async function RootLayout({
   return (
     <html lang={lang} data-scroll-behavior="smooth">
       <body
-        className={`${displayFont.variable} ${bodyFont.variable} text-ink relative bg-[radial-gradient(circle_at_top_left,rgba(187,77,0,0.18),transparent_28%),radial-gradient(circle_at_top_right,rgba(21,110,92,0.12),transparent_24%),linear-gradient(180deg,#fbf6ed_0%,#f5f1e8_38%,#efe5d6_100%)] antialiased`}
+        className={`${displayFont.variable} ${bodyFont.variable} text-foreground relative`}
       >
         <HiddenLinks />
         <div className="relative isolate flex min-h-screen flex-col">

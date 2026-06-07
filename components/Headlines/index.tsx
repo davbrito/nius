@@ -18,16 +18,16 @@ async function Headlines({ lang, variant = "grid" }: HeadlinesProps) {
       ) : (
         <>
           <header className="grid gap-2">
-            <p className="text-accent-strong m-0 text-[0.8rem] font-bold tracking-[0.26em] uppercase">
+            <p className="text-accent-foreground m-0 text-[0.8rem] font-bold tracking-[0.26em] uppercase">
               Front page picks
             </p>
             <h2
               id="headlines-title"
-              className="m-0 text-[clamp(2.6rem,5vw,4rem)] leading-[0.92] font-display"
+              className="font-display m-0 text-[clamp(2.6rem,5vw,4rem)] leading-[0.92]"
             >
               Headlines
             </h2>
-            <p className="text-muted m-0 max-w-[42rem]">
+            <p className="text-muted-foreground m-0 max-w-[42rem]">
               The three stories defining the current cycle before you dive into
               the full feed.
             </p>

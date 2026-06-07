@@ -16,7 +16,7 @@ export default function Article({ article }: ArticleProps) {
   );
 
   return (
-    <article className="group bg-panel grid min-h-full grid-rows-[220px_1fr] overflow-hidden rounded-[1.5rem] border border-ink/8 shadow-soft backdrop-blur-[10px]">
+    <article className="group bg-card shadow-soft grid min-h-full grid-rows-[220px_1fr] overflow-hidden rounded-[1.5rem] border backdrop-blur-[10px]">
       {article.urlToImage ? (
         <a
           href={article.url}
@@ -40,14 +40,14 @@ export default function Article({ article }: ArticleProps) {
       )}
 
       <div className="grid gap-4 p-5">
-        <p className="text-muted m-0 flex flex-wrap gap-x-4 gap-y-2 text-[0.76rem] font-bold tracking-[0.14em] uppercase">
+        <p className="text-muted-foreground m-0 flex flex-wrap gap-x-4 gap-y-2 text-[0.76rem] font-bold tracking-[0.14em] uppercase">
           <span>{article.source.name}</span>
           <span>{publishedDate}</span>
         </p>
 
         <header>
           <h3
-            className="m-0 text-[2rem] leading-[0.95] font-display"
+            className="font-display m-0 text-[2rem] leading-[0.95]"
             title={article.title}
           >
             <a href={article.url} target="_blank" rel="noreferrer">
@@ -56,13 +56,13 @@ export default function Article({ article }: ArticleProps) {
           </h3>
         </header>
 
-        <p className="text-muted m-0">{article.description}</p>
+        <p className="text-muted-foreground m-0">{article.description}</p>
 
         <a
           href={article.url}
           target="_blank"
           rel="noreferrer"
-          className="hover:border-b-accent/80 w-fit border-b-2 border-b-accent/35 pb-1 font-bold no-underline"
+          className="hover:border-b-accent/80 border-b-accent/35 w-fit border-b-2 pb-1 font-bold no-underline"
         >
           Read full story
         </a>

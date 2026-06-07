@@ -12,7 +12,7 @@ export default function PreviewDialog({ article }: PreviewDialogProps) {
   return (
     <Dialog.Root>
       <Dialog.Trigger
-        className="bg-ink min-h-12 rounded-full border-0 px-4 font-bold text-white"
+        className="bg-foreground text-background min-h-12 rounded-full border-0 px-4 font-bold"
         type="button"
       >
         Preview
@@ -23,19 +23,19 @@ export default function PreviewDialog({ article }: PreviewDialogProps) {
           <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[1.5rem] bg-white p-6 shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
             <div className="mb-4 flex items-start justify-between gap-4">
               <div>
-                <Dialog.Title className="text-muted text-[0.8rem] tracking-[0.22em] uppercase">
+                <Dialog.Title className="text-muted-foreground text-[0.8rem] tracking-[0.22em] uppercase">
                   {article.source.name}
                 </Dialog.Title>
-                <h2 className="mt-2 text-[clamp(2rem,3vw,2.75rem)] leading-[1.05] font-display">
+                <h2 className="font-display mt-2 text-[clamp(2rem,3vw,2.75rem)] leading-[1.05]">
                   {article.title}
                 </h2>
               </div>
-              <Dialog.Close className="inline-flex h-10 items-center justify-center rounded-full border border-ink/12 bg-white/90 px-4 text-sm font-semibold text-ink transition hover:border-accent hover:bg-white">
+              <Dialog.Close className="text-foreground hover:border-accent bg-card/90 hover:bg-card inline-flex h-10 items-center justify-center rounded-full border px-4 text-sm font-semibold transition">
                 Close
               </Dialog.Close>
             </div>
             {article.urlToImage ? (
-              <div className="bg-panel mb-5 overflow-hidden rounded-[1.25rem]">
+              <div className="mb-5 overflow-hidden rounded-[1.25rem]">
                 <Image
                   src={article.urlToImage}
                   alt={article.title}
@@ -46,11 +46,11 @@ export default function PreviewDialog({ article }: PreviewDialogProps) {
                 />
               </div>
             ) : null}
-            <Dialog.Description className="text-muted mb-4">
+            <Dialog.Description className="text-muted-foreground mb-4">
               {article.description}
             </Dialog.Description>
             {article.content ? (
-              <p className="text-muted mb-4 whitespace-pre-line">
+              <p className="text-muted-foreground mb-4 whitespace-pre-line">
                 {article.content}
               </p>
             ) : null}
