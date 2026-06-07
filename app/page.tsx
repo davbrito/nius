@@ -1,4 +1,3 @@
-import { PageProps } from "@/.next/types/app/page";
 import Headlines from "@/components/Headlines";
 import LangSelector from "@/components/LangSelector";
 import NewsList from "@/components/NewsList";
@@ -13,10 +12,10 @@ export const metadata: Metadata = {
   description: "Nius - Your Favorite News in a single place",
 };
 
-export default async function Home({ searchParams }: PageProps) {
+export default async function Home({ searchParams }: PageProps<"/">) {
   const query = await searchParams;
-  const lang = await resolveLanguage(query?.lang);
-  const search = query?.search;
+  const lang = await resolveLanguage(query?.lang?.toString());
+  const search = query?.search?.toString();
   const page = Number(query?.page ?? 1);
 
   const showHeadlines = page <= 1 && !search;

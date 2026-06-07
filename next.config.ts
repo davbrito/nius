@@ -1,8 +1,9 @@
 import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  
+  reactStrictMode: false,
+  reactCompiler: true,
+
   images: {
     remotePatterns: [
       // https://cdn.jsdelivr.net/npm/emoji-datasource-${emojiSetName}@15.0.1/img/${emojiSetName}/sheets-256/64.png
