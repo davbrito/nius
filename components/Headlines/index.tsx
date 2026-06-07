@@ -13,6 +13,16 @@ async function Headlines({ lang, variant = "grid" }: HeadlinesProps) {
   const t = await getTranslations("headlines");
   const articles = await fetcHeadlines(lang);
 
+  if (articles.length === 0) {
+    return (
+      <section aria-labelledby="headlines-title" className="grid gap-6 py-6">
+        <div className="text-muted-foreground rounded-[1.25rem] border border-dashed p-8 text-center">
+          {t("no_headlines")}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section aria-labelledby="headlines-title" className="grid gap-6 py-6">
       {variant === "hero" ? (

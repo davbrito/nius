@@ -29,7 +29,8 @@
     "headlines": "Headlines",
     "headlines_description": "The three stories defining the current cycle before you dive into the full feed.",
     "top_headlines": "Top headlines",
-    "go_to_slide": "Go to slide {n}"
+    "go_to_slide": "Go to slide {n}",
+    "no_headlines": "No headlines available right now. Try again later."
   },
   "hidden_links": {
     "skip_to_content": "Skip to content"
