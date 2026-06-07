@@ -1,12 +1,79 @@
 @import "tailwindcss";
-@import "@picocss/pico/css/pico.min.css";
 
 @source "../app";
 @source "../components";
 @source "../lib";
 
+:root {
+  --font-body: "Space Grotesk", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+}
+
+@theme inline {
+  --color-ink: #171717;
+  --color-paper: #f5f1e8;
+  --color-paper-strong: #efe6d7;
+  --color-panel: rgba(255, 252, 245, 0.78);
+  --color-border: rgba(23, 23, 23, 0.14);
+  --color-accent: #bb4d00;
+  --color-accent-strong: #8f2f00;
+  --color-muted: #5f5a52;
+  --shadow-soft: 0 18px 50px rgba(80, 44, 8, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  background: radial-gradient(
+      circle at top left,
+      rgba(187, 77, 0, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(21, 110, 92, 0.12),
+      transparent 24%
+    ),
+    linear-gradient(180deg, #fbf6ed 0%, var(--color-paper) 38%, #efe5d6 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.28;
+  background-image: linear-gradient(
+    rgba(23, 23, 23, 0.03) 1px,
+    transparent 1px
+  );
+  background-size: 100% 28px;
+}
+
 a {
+  color: inherit;
   outline-color: currentColor;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
 }
 
 /* Header links */
@@ -16,5 +83,40 @@ a {
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-main {
+    width: min(100% - 1rem, 1180px);
+  }
+}
+
+.site-header {
+  container-type: scroll-state;
+  container-name: site-header-container;
+}
+
+.site-header-content {
+  border: 1px solid transparent;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 2rem;
+  padding: 0.8rem 1.5rem;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    backdrop-filter 0.3s ease,
+    padding 0.3s ease;
+}
+
+@container site-header-container scroll-state(stuck: top) {
+  .site-header-content {
+    border-color: var(--color-border);
+    background: rgba(255, 252, 245, 0.7);
+    box-shadow: 0 14px 50px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
   }
 }

@@ -1,17 +1,27 @@
 import { newsClient } from "@/lib/api/client";
+import { ArticleModel } from "@/lib/api/contract";
 import Article from "../Article";
-import styles from "./styles.module.css";
 
 async function Headlines({ lang }: { lang: string }) {
   const articles = await fetcHeadlines(lang);
   return (
-    <section aria-labelledby="headlines-title">
-      <header>
-        <h2 id="headlines-title" className={styles.title}>
+    <section aria-labelledby="headlines-title" className="grid gap-6 py-6">
+      <header className="grid gap-2">
+        <p className="m-0 text-[0.8rem] font-bold tracking-[0.26em] text-[color:var(--color-accent-strong)] uppercase">
+          Front page picks
+        </p>
+        <h2
+          id="headlines-title"
+          className="m-0 text-[clamp(2.6rem,5vw,4rem)] leading-[0.92] font-[family:var(--font-display)]"
+        >
           Headlines
         </h2>
+        <p className="text-muted m-0 max-w-[42rem]">
+          The three stories defining the current cycle before you dive into the
+          full feed.
+        </p>
       </header>
-      <div className={styles.items}>
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {articles?.map((article) => {
           return <Article key={article.url} article={article} />;
         })}
@@ -22,7 +32,7 @@ async function Headlines({ lang }: { lang: string }) {
 
 export default Headlines;
 
-const fetcHeadlines = async (lang: string) => {
+const fetcHeadlines = async (lang: string): Promise<ArticleModel[]> => {
   const response = await newsClient.topHeadlines({
     query: { language: lang, pageSize: 3 },
     fetchOptions: { cache: "no-store" },

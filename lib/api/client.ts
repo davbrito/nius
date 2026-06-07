@@ -1,4 +1,3 @@
-// client.ts
 import { initClient } from "@ts-rest/core";
 import { contract } from "./contract";
 
@@ -8,6 +7,6 @@ const BASE_URL = "https://newsapi.org/v2/";
 export const newsClient = initClient(contract, {
   baseUrl: BASE_URL,
   baseHeaders: {
-    Authorization: API_KEY,
+    Authorization: `Bearer ${API_KEY}`,
   },
 });
