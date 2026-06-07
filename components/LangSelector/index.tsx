@@ -1,6 +1,7 @@
 "use client";
 
 import { Select } from "@base-ui/react/select";
+import { ChevronDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 interface Language {
@@ -37,8 +38,8 @@ function LangSelector({ languages }: LangSelectorProps) {
                 : ""
             }
           </Select.Value>
-          <Select.Icon className="text-muted-foreground text-[0.8rem]">
-            ▾
+          <Select.Icon className="text-muted-foreground" aria-hidden="true">
+            <ChevronDown className="h-4 w-4" />
           </Select.Icon>
         </Select.Trigger>
         <Select.Portal>

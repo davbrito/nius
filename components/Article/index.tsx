@@ -25,6 +25,7 @@ export default function Article({ article }: ArticleProps) {
           href={article.url}
           target="_blank"
           rel="noreferrer"
+          aria-label={article.title}
           className="relative block overflow-hidden bg-[linear-gradient(135deg,rgba(187,77,0,0.7),rgba(22,68,73,0.8)),#d6c6ae]"
         >
           <Image

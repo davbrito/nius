@@ -45,6 +45,7 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
             type="button"
             onClick={() => scrollToIndex(Math.max(0, activeIndex - 1))}
             disabled={activeIndex === 0}
+            aria-label={t("previous_headline")}
             className="text-foreground hover:border-accent bg-card/85 hover:bg-card inline-flex h-10 min-w-12 items-center justify-center rounded-full border px-3 text-sm font-semibold shadow-sm transition disabled:cursor-not-allowed disabled:opacity-40"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -53,6 +54,7 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
             type="button"
             onClick={() => scrollToIndex(Math.min(maxIndex, activeIndex + 1))}
             disabled={activeIndex === maxIndex}
+            aria-label={t("next_headline")}
             className="text-foreground hover:border-accent bg-card/85 hover:bg-card inline-flex h-10 min-w-[3rem] items-center justify-center rounded-full border px-3 text-sm font-semibold shadow-sm transition disabled:cursor-not-allowed disabled:opacity-40"
           >
             <ArrowRight className="h-4 w-4" />

@@ -30,6 +30,8 @@
     "headlines_description": "Las tres historias que definen el ciclo actual antes de sumergirte en el feed completo.",
     "top_headlines": "Principales titulares",
     "go_to_slide": "Ir a la diapositiva {n}",
+    "previous_headline": "Titular anterior",
+    "next_headline": "Siguiente titular",
     "no_headlines": "No hay titulares disponibles ahora. Intenta de nuevo más tarde."
   },
   "hidden_links": {
