@@ -4,6 +4,7 @@ import LangSelector from "@/components/LangSelector";
 import { getLanguages } from "@/lib/language";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { NavigationMenu } from "@base-ui/react/navigation-menu";
 
 export default function Header({ lang: defaultLang }: { lang: string }) {
   const searchParams = useSearchParams();
@@ -22,35 +23,35 @@ export default function Header({ lang: defaultLang }: { lang: string }) {
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          <LangSelector lang={lang} languages={getLanguages(lang)} />
-          <nav>
-            <ul className="m-0 flex list-none flex-wrap items-center gap-3 p-0">
-              <li>
-                <Link
-                  className="text-muted hover:text-ink hover:border-accent inline-flex min-h-10 items-center border-b-2 border-transparent py-1 no-underline"
+          <NavigationMenu.Root>
+            <NavigationMenu.List className="m-0 flex list-none flex-wrap items-center gap-3 p-0">
+              <NavigationMenu.Item>
+                <NavigationMenu.Link
                   href="/"
+                  className="text-muted hover:text-ink hover:border-accent inline-flex min-h-10 items-center border-b-2 border-transparent py-1 no-underline"
                 >
                   Front page
-                </Link>
-              </li>
-              <li>
-                <a
-                  className="text-muted hover:text-ink hover:border-accent inline-flex min-h-10 items-center border-b-2 border-transparent py-1 no-underline"
+                </NavigationMenu.Link>
+              </NavigationMenu.Item>
+              <NavigationMenu.Item>
+                <NavigationMenu.Link
                   href="#headlines-title"
+                  className="text-muted hover:text-ink hover:border-accent inline-flex min-h-10 items-center border-b-2 border-transparent py-1 no-underline"
                 >
                   Headlines
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-muted hover:text-ink hover:border-accent inline-flex min-h-10 items-center border-b-2 border-transparent py-1 no-underline"
+                </NavigationMenu.Link>
+              </NavigationMenu.Item>
+              <NavigationMenu.Item>
+                <NavigationMenu.Link
                   href="#news-feed"
+                  className="text-muted hover:text-ink hover:border-accent inline-flex min-h-10 items-center border-b-2 border-transparent py-1 no-underline"
                 >
                   News feed
-                </a>
-              </li>
-            </ul>
-          </nav>
+                </NavigationMenu.Link>
+              </NavigationMenu.Item>
+            </NavigationMenu.List>
+          </NavigationMenu.Root>
+          <LangSelector lang={lang} languages={getLanguages(lang)} />
         </div>
       </div>
     </header>

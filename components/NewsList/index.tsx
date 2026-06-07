@@ -1,5 +1,7 @@
 "use client";
+import Image from "next/image";
 import { Button } from "@base-ui/react/button";
+import PreviewDialog from "./PreviewDialog";
 import { ArticleModel, ResponseShapes } from "@/lib/api/contract";
 import { useSetSearchParam } from "@/lib/query";
 import { use } from "react";
@@ -18,7 +20,7 @@ export default function NewsList({ page, pageSize, promise }: NewsListProps) {
 
   if (status === 400)
     return (
-      <div className="text-muted rounded-[1.25rem] border border-dashed border-[rgba(23,23,23,0.18)] p-6 text-center">
+      <div className="text-muted border-border rounded-[1.25rem] border border-dashed p-6 text-center">
         {body.message}
       </div>
     );
@@ -33,7 +35,7 @@ export default function NewsList({ page, pageSize, promise }: NewsListProps) {
 
   if (articles.length === 0) {
     return (
-      <div className="text-muted rounded-[1.25rem] border border-dashed border-[rgba(23,23,23,0.18)] p-6 text-center">
+      <div className="text-muted border-border rounded-[1.25rem] border border-dashed p-6 text-center">
         No stories matched this query. Try a broader keyword or switch language.
       </div>
     );
@@ -44,8 +46,21 @@ export default function NewsList({ page, pageSize, promise }: NewsListProps) {
       <ul className="m-0 grid list-none gap-4 p-0 lg:grid-cols-2">
         {articles.map((article) => (
           <li key={article.url} className="min-w-0">
-            <article className="grid min-h-full gap-4 rounded-[1.4rem] border border-[rgba(23,23,23,0.08)] bg-[rgba(255,255,255,0.62)] p-5">
-              <p className="text-muted m-0 flex flex-wrap gap-x-4 gap-y-2 text-[0.76rem] font-bold tracking-[0.14em] uppercase">
+            <article className="border-border bg-panel grid min-h-full gap-4 rounded-[1.4rem] border p-5">
+              {article.urlToImage ? (
+                <div className="bg-panel relative overflow-hidden rounded-[1.25rem]">
+                  <Image
+                    src={article.urlToImage}
+                    alt={article.title}
+                    width={720}
+                    height={405}
+                    className="h-64 w-full object-cover"
+                    unoptimized
+                    rel="noreferrer"
+                  />
+                </div>
+              ) : null}
+              <p className="text-muted m-0 flex flex-wrap gap-x-4 gap-y-2 text-xs font-bold tracking-[0.14em] uppercase">
                 <span>{article.source.name}</span>
                 <span>
                   {new Date(article.publishedAt).toLocaleDateString(undefined, {
@@ -61,14 +76,17 @@ export default function NewsList({ page, pageSize, promise }: NewsListProps) {
                 </a>
               </h3>
               <p className="text-muted m-0">{article.description}</p>
-              <a
-                href={article.url}
-                target="_blank"
-                rel="noreferrer"
-                className="hover:border-b-accent w-fit border-b-2 border-b-[rgba(187,77,0,0.35)] pb-1 font-bold no-underline"
-              >
-                Open article
-              </a>
+              <div className="flex flex-wrap items-center gap-3">
+                <PreviewDialog article={article} />
+                <a
+                  href={article.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="border-b-accent hover:border-b-accent w-fit border-b-2 pb-1 font-bold no-underline transition"
+                >
+                  Open article
+                </a>
+              </div>
             </article>
           </li>
         ))}
