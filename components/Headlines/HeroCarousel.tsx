@@ -88,12 +88,16 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
             onClick={() => scrollToIndex(index)}
             aria-label={t("go_to_slide", { n: index + 1 })}
             aria-pressed={activeIndex === index}
-            className={`inline-flex h-3.5 w-3.5 items-center justify-center rounded-full transition ${
-              activeIndex === index
-                ? "bg-accent"
-                : "bg-foreground/16 hover:bg-foreground/24"
-            }`}
-          />
+            className="inline-flex h-6 w-6 items-center justify-center rounded-full transition"
+          >
+            <span
+              className={`h-3.5 w-3.5 rounded-full transition ${
+                activeIndex === index
+                  ? "bg-accent"
+                  : "bg-foreground/16 hover:bg-foreground/24"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>
