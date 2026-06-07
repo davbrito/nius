@@ -19,8 +19,8 @@ export default function PreviewDialog({ article }: PreviewDialogProps) {
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Backdrop className="fixed inset-0 bg-black/40" />
-        <Dialog.Popup className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[1.5rem] bg-white p-6 shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
+        <Dialog.Popup className="fixed inset-0 m-auto flex max-h-[90vh] max-w-3xl items-center justify-center p-4">
+          <div className="w-full overflow-y-auto rounded-[1.5rem] bg-white p-6 shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
             <div className="mb-4 flex items-start justify-between gap-4">
               <div>
                 <Dialog.Title className="text-muted-foreground text-[0.8rem] tracking-[0.22em] uppercase">
