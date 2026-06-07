@@ -55,7 +55,7 @@
   },
   "footer": {
     "independent_reader": "Independent reader",
-    "made_with": "Made with <emoji><emoji/> by <author></author>",
-    "read_the_code": "Read the code on <giothub>GitHub</giothub>"
+    "made_with": "Made with <emoji></emoji> by <author></author>",
+    "read_the_code": "Read the code on <github>GitHub</github>"
   }
 }
