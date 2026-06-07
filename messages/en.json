@@ -1,0 +1,60 @@
+{
+  "layout": {
+    "title": "Nius - Your Favorite News in a single place"
+  },
+  "home": {
+    "title": "Home",
+    "description": "Nius - Your Favorite News in a single place",
+    "search_label": "Search the wire",
+    "search_placeholder": "Economy, climate, elections...",
+    "search_button": "Search",
+    "mode": "Mode",
+    "top_feed": "Top feed",
+    "search_mode": "Search",
+    "page": "Page",
+    "wire_overview": "Wire overview",
+    "latest_coverage": "Latest coverage",
+    "results_for": "Results for \"{search}\"",
+    "feed_description": "A running brief from trusted publishers, updated in real time.",
+    "search_results_description": "Search results from Associated Press and BBC News."
+  },
+  "header": {
+    "daily_brief": "Daily editorial brief",
+    "front_page": "Front page",
+    "headlines": "Headlines",
+    "news_feed": "News feed"
+  },
+  "headlines": {
+    "front_page_picks": "Front page picks",
+    "headlines": "Headlines",
+    "headlines_description": "The three stories defining the current cycle before you dive into the full feed.",
+    "top_headlines": "Top headlines",
+    "go_to_slide": "Go to slide {n}"
+  },
+  "hidden_links": {
+    "skip_to_content": "Skip to content"
+  },
+  "lang_selector": {
+    "label": "Language"
+  },
+  "news_list": {
+    "no_results": "No stories matched this query. Try a broader keyword or switch language.",
+    "previous": "Previous",
+    "next": "Next",
+    "open_article": "Open article",
+    "pagination": "Pagination"
+  },
+  "preview_dialog": {
+    "preview": "Preview",
+    "close": "Close",
+    "read_full": "Read full article"
+  },
+  "article": {
+    "read_full_story": "Read full story"
+  },
+  "footer": {
+    "independent_reader": "Independent reader",
+    "made_with": "Made with <emoji><emoji/> by <author></author>",
+    "read_the_code": "Read the code on <giothub>GitHub</giothub>"
+  }
+}

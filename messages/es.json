@@ -1,0 +1,60 @@
+{
+  "layout": {
+    "title": "Nius - Tus noticias favoritas en un solo lugar"
+  },
+  "home": {
+    "title": "Inicio",
+    "description": "Nius - Tus noticias favoritas en un solo lugar",
+    "search_label": "Buscar en el cable",
+    "search_placeholder": "Economía, clima, elecciones...",
+    "search_button": "Buscar",
+    "mode": "Modo",
+    "top_feed": "Feed principal",
+    "search_mode": "Búsqueda",
+    "page": "Página",
+    "wire_overview": "Resumen del cable",
+    "latest_coverage": "Cobertura reciente",
+    "results_for": "Resultados para \"{search}\"",
+    "feed_description": "Un resumen actualizado de fuentes confiables, actualizado en tiempo real.",
+    "search_results_description": "Resultados de búsqueda de Associated Press y BBC News."
+  },
+  "header": {
+    "daily_brief": "Resumen editorial diario",
+    "front_page": "Portada",
+    "headlines": "Titulares",
+    "news_feed": "Feed de noticias"
+  },
+  "headlines": {
+    "front_page_picks": "Selección de portada",
+    "headlines": "Titulares",
+    "headlines_description": "Las tres historias que definen el ciclo actual antes de sumergirte en el feed completo.",
+    "top_headlines": "Principales titulares",
+    "go_to_slide": "Ir a la diapositiva {n}"
+  },
+  "hidden_links": {
+    "skip_to_content": "Saltar al contenido"
+  },
+  "lang_selector": {
+    "label": "Idioma"
+  },
+  "news_list": {
+    "no_results": "No se encontraron noticias. Prueba con una palabra clave más amplia o cambia de idioma.",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "open_article": "Abrir artículo",
+    "pagination": "Paginación"
+  },
+  "preview_dialog": {
+    "preview": "Vista previa",
+    "close": "Cerrar",
+    "read_full": "Leer artículo completo"
+  },
+  "article": {
+    "read_full_story": "Leer historia completa"
+  },
+  "footer": {
+    "independent_reader": "Lector independiente",
+    "made_with": "Hecho con <emoji></emoji> por <author></author>",
+    "read_the_code": "Lee el código en <github>GitHub</github>"
+  }
+}

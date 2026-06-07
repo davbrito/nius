@@ -4,7 +4,8 @@ import PageFooter from "@/components/PageFooter";
 import HiddenLinks from "@/components/HiddenLinks";
 import Header from "@/components/Header";
 import { Cormorant_Garamond, Space_Grotesk } from "next/font/google";
-import { negotiateLanguage } from "@/lib/language";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
@@ -23,23 +24,29 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const lang = await negotiateLanguage();
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang={lang} data-scroll-behavior="smooth">
-      <body
-        className={`${displayFont.variable} ${bodyFont.variable} text-foreground relative`}
-      >
-        <HiddenLinks />
-        <div className="relative isolate flex min-h-screen flex-col">
-          <Header lang={lang} />
-          <main
-            id="main-content"
-            className="relative mx-auto w-[min(1180px,calc(100%-2rem))] flex-1 pb-16 max-[720px]:w-[min(100%-1rem,1180px)]"
-          >
-            {children}
-          </main>
-          <PageFooter />
-        </div>
+    <html
+      lang={locale}
+      data-scroll-behavior="smooth"
+      className={`${displayFont.variable} ${bodyFont.variable}`}
+    >
+      <body className="text-foreground relative">
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <HiddenLinks />
+          <div className="relative isolate flex min-h-screen flex-col">
+            <Header lang={locale} />
+            <main
+              id="main-content"
+              className="relative mx-auto w-[min(1180px,calc(100%-2rem))] flex-1 pb-16 max-[720px]:w-[min(100%-1rem,1180px)]"
+            >
+              {children}
+            </main>
+            <PageFooter />
+          </div>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

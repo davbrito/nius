@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { ArticleModel } from "@/lib/api/contract";
 
 export interface ArticleProps {
@@ -6,6 +8,7 @@ export interface ArticleProps {
 }
 
 export default function Article({ article }: ArticleProps) {
+  const t = useTranslations("article");
   const publishedDate = new Date(article.publishedAt).toLocaleDateString(
     undefined,
     {
@@ -64,7 +67,7 @@ export default function Article({ article }: ArticleProps) {
           rel="noreferrer"
           className="hover:border-b-accent/80 border-b-accent/35 w-fit border-b-2 pb-1 font-bold no-underline"
         >
-          Read full story
+          {t("read_full_story")}
         </a>
       </div>
     </article>

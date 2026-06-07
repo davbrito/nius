@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Dialog } from "@base-ui/react/dialog";
+import { useTranslations } from "next-intl";
 import { ArticleModel } from "@/lib/api/contract";
 
 interface PreviewDialogProps {
@@ -9,13 +10,15 @@ interface PreviewDialogProps {
 }
 
 export default function PreviewDialog({ article }: PreviewDialogProps) {
+  const t = useTranslations("preview_dialog");
+
   return (
     <Dialog.Root>
       <Dialog.Trigger
         className="bg-foreground text-background min-h-12 rounded-full border-0 px-4 font-bold"
         type="button"
       >
-        Preview
+        {t("preview")}
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Backdrop className="fixed inset-0 bg-black/40" />
@@ -31,7 +34,7 @@ export default function PreviewDialog({ article }: PreviewDialogProps) {
                 </h2>
               </div>
               <Dialog.Close className="text-foreground hover:border-accent bg-card/90 hover:bg-card inline-flex h-10 items-center justify-center rounded-full border px-4 text-sm font-semibold transition">
-                Close
+                {t("close")}
               </Dialog.Close>
             </div>
             {article.urlToImage ? (
@@ -60,7 +63,7 @@ export default function PreviewDialog({ article }: PreviewDialogProps) {
               rel="noreferrer"
               className="border-b-accent hover:border-b-accent inline-flex rounded-full border px-4 py-2 font-bold transition"
             >
-              Read full article
+              {t("read_full")}
             </a>
           </div>
         </Dialog.Popup>

@@ -2,6 +2,7 @@
 
 import { ArticleModel } from "@/lib/api/contract";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useRef, useState } from "react";
 import Article from "../Article";
 
@@ -10,6 +11,7 @@ interface HeroCarouselProps {
 }
 
 export default function HeroCarousel({ articles }: HeroCarouselProps) {
+  const t = useTranslations("headlines");
   const viewportRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -32,10 +34,10 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="grid gap-1">
           <p className="text-accent-foreground m-0 text-[0.8rem] font-bold tracking-[0.26em] uppercase">
-            Front page picks
+            {t("front_page_picks")}
           </p>
           <h2 className="font-display m-0 text-[clamp(2.6rem,5vw,4rem)] leading-[0.92]">
-            Top headlines
+            {t("top_headlines")}
           </h2>
         </div>
         <div className="flex gap-2">
@@ -82,7 +84,7 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
             key={index}
             type="button"
             onClick={() => scrollToIndex(index)}
-            aria-label={`Go to slide ${index + 1}`}
+            aria-label={t("go_to_slide", { n: index + 1 })}
             aria-pressed={activeIndex === index}
             className={`inline-flex h-3.5 w-3.5 items-center justify-center rounded-full transition ${
               activeIndex === index

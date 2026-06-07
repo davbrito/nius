@@ -1,7 +1,7 @@
 "use client";
 
 import { Select } from "@base-ui/react/select";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 
 interface Language {
   lang: string;
@@ -13,29 +13,21 @@ interface LangSelectorProps {
   lang: string;
 }
 
-function LangSelector({ languages, lang }: LangSelectorProps) {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-
-  // Get a new searchParams string by merging the current
-  // searchParams with a provided key/value pair
-  const createQueryString = (name: string, value: string) => {
-    const params = new URLSearchParams(searchParams?.toString());
-    params.set(name, value);
-    return params.toString();
-  };
+function LangSelector({ languages }: LangSelectorProps) {
+  const locale = useLocale();
+  const t = useTranslations("lang_selector");
 
   return (
     <div className="inline-grid">
       <Select.Root
-        value={lang}
+        value={locale}
         onValueChange={(nextLang) => {
           if (nextLang === null) return;
-          router.replace(pathname + "?" + createQueryString("lang", nextLang));
+          document.cookie = `NEXT_LOCALE=${nextLang};path=/;max-age=31536000;SameSite=Lax`;
+          window.location.reload();
         }}
       >
-        <Select.Label className="sr-only">Language</Select.Label>
+        <Select.Label className="sr-only">{t("label")}</Select.Label>
         <Select.Trigger className="text-foreground hover:border-accent data-popup-open:border-accent bg-card/90 inline-flex items-center justify-between gap-2 rounded-full border px-3 py-1 text-left shadow-sm transition outline-none">
           <Select.Value>
             {(value: string | null) =>

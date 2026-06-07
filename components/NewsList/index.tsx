@@ -4,6 +4,7 @@ import { Button } from "@base-ui/react/button";
 import PreviewDialog from "./PreviewDialog";
 import { ArticleModel, ResponseShapes } from "@/lib/api/contract";
 import { useSetSearchParam } from "@/lib/query";
+import { useTranslations } from "next-intl";
 import { use } from "react";
 
 interface NewsListProps {
@@ -13,6 +14,7 @@ interface NewsListProps {
 }
 
 export default function NewsList({ page, pageSize, promise }: NewsListProps) {
+  const t = useTranslations("news_list");
   const query = useSetSearchParam();
 
   const data = use(promise);
@@ -36,7 +38,7 @@ export default function NewsList({ page, pageSize, promise }: NewsListProps) {
   if (articles.length === 0) {
     return (
       <div className="text-muted-foreground rounded-[1.25rem] border border-dashed p-6 text-center">
-        No stories matched this query. Try a broader keyword or switch language.
+        {t("no_results")}
       </div>
     );
   }
@@ -84,7 +86,7 @@ export default function NewsList({ page, pageSize, promise }: NewsListProps) {
                   rel="noreferrer"
                   className="border-b-accent hover:border-b-accent w-fit border-b-2 pb-1 font-bold no-underline transition"
                 >
-                  Open article
+                  {t("open_article")}
                 </a>
               </div>
             </article>
@@ -94,7 +96,7 @@ export default function NewsList({ page, pageSize, promise }: NewsListProps) {
 
       <nav
         className="flex flex-wrap items-center justify-center gap-3"
-        aria-label="Pagination"
+        aria-label={t("pagination")}
       >
         {page > 1 ? (
           <Button
@@ -104,7 +106,7 @@ export default function NewsList({ page, pageSize, promise }: NewsListProps) {
               query.push("page", String(page - 1));
             }}
           >
-            Previous
+            {t("previous")}
           </Button>
         ) : null}
         <span className="text-muted-foreground min-w-24 text-center font-bold">
@@ -118,7 +120,7 @@ export default function NewsList({ page, pageSize, promise }: NewsListProps) {
               query.push("page", String(page + 1));
             }}
           >
-            Next
+            {t("next")}
           </Button>
         ) : null}
       </nav>

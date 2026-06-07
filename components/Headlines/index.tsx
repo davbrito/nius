@@ -1,5 +1,6 @@
 import { newsClient } from "@/lib/api/client";
 import { ArticleModel } from "@/lib/api/contract";
+import { getTranslations } from "next-intl/server";
 import HeroCarousel from "./HeroCarousel";
 import Article from "../Article";
 
@@ -9,6 +10,7 @@ interface HeadlinesProps {
 }
 
 async function Headlines({ lang, variant = "grid" }: HeadlinesProps) {
+  const t = await getTranslations("headlines");
   const articles = await fetcHeadlines(lang);
 
   return (
@@ -19,17 +21,16 @@ async function Headlines({ lang, variant = "grid" }: HeadlinesProps) {
         <>
           <header className="grid gap-2">
             <p className="text-accent-foreground m-0 text-[0.8rem] font-bold tracking-[0.26em] uppercase">
-              Front page picks
+              {t("front_page_picks")}
             </p>
             <h2
               id="headlines-title"
               className="font-display m-0 text-[clamp(2.6rem,5vw,4rem)] leading-[0.92]"
             >
-              Headlines
+              {t("headlines")}
             </h2>
             <p className="text-muted-foreground m-0 max-w-[42rem]">
-              The three stories defining the current cycle before you dive into
-              the full feed.
+              {t("headlines_description")}
             </p>
           </header>
 
