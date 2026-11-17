@@ -16,7 +16,7 @@
     "@ts-rest/core": "3.53.0-rc.1",
     "lucide-react": "^1.17.0",
     "negotiator": "^1.0.0",
-    "next": "16.4.1",
+    "next": "16.4.5",
     "next-intl": "^4.13.0",
     "postcss": "^8.5.23",
     "react": "19.2.7",
